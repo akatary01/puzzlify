@@ -11,3 +11,4 @@ api/conf/secrets.yaml
 
 api/*.jar
 api/target/
+.idea/
