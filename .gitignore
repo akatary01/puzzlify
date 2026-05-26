@@ -8,3 +8,6 @@ api/akatary_api_env
 *__pycache__
 api/.env
 api/conf/secrets.yaml
+
+api/*.jar
+api/target/
