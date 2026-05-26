@@ -1,0 +1,10 @@
+.env
+build 
+deploy.sh
+node_modules
+package-lock.json
+
+api/akatary_api_env
+*__pycache__
+api/.env
+api/conf/secrets.yaml
