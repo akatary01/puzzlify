@@ -15,11 +15,11 @@ public class Puzzle {
         for (int i = 0; i < rows; i++) {
             final Cell[] row = new Cell[cols];
             // the remaining bottom pixels
-            final int rH = i == rows - 1 ? 0 : h % rows;
+            final int rH = i == rows - 1 ? h % rows : 0;
 
             for (int j = 0; j < cols; j++) {
                 // the remaining right-most pixels
-                int rC = j == cols - 1 ? 0 : w % cols;
+                final int rC = j == cols - 1 ? w % cols : 0;
                 final Pixel[] coordinates = new Pixel[(a + rH)*(b + rC)];
                 for (int k = 0; k < a + rH; k++) {
                     for (int l = 0; l < b + rC; l++) {
