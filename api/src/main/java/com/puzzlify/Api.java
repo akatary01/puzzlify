@@ -20,7 +20,7 @@ public class Api {
         
         // test that the grid outputs the correct image with the center cell all white
         final Cell[][] grid = constructGrid(image, 3, 3);
-        for (final Pixel pixel : grid[0][0].coordinates()) {
+        for (final Pixel pixel : grid[2][2].pixels()) {
             // only color in non-transparent pixels
             if (pixel != null) {
                 image.setRGB(pixel.x(), pixel.y(), 255);
