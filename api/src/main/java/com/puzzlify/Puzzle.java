@@ -1,11 +1,11 @@
 package com.puzzlify;
 
 public class Puzzle {
-    public record Point(int x, int y) {}
+    public record Pixel(int x, int y) {}
     public record Pair<T, U>(T first, U second) {}
 
-    public record Cell(Point[] coordinates) {}
-    public record Edge(Point start, Point end) {}
+    public record Cell(Pixel[] coordinates) {}
+    public record Edge(Pixel start, Pixel end) {}
     
     public static Cell[][] constructGrid(int w, int h, int rows, int cols) {
         final Cell[][] grid = new Cell[rows][cols];
@@ -26,10 +26,10 @@ public class Puzzle {
                 // cell (i, j) contains pixels with 
                 // x in [h//rows*i, h//rows*(i + 1))
                 // y in [w//cols*j, w//cols*(j + 1))
-                final Point[] coordinates = new Point[(a + rh)*(b + rc)];
+                final Pixel[] coordinates = new Pixel[(a + rh)*(b + rc)];
                 for (int k = 0; k < a + rh; k++) {
                     for (int l = 0; l < b + rc; l++) {
-                        coordinates[k*b + l] = new Point(k + a*i, l + b*j);
+                        coordinates[k*b + l] = new Pixel(k + a*i, l + b*j);
                     }
                 }
 

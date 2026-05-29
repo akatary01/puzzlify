@@ -7,7 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import com.puzzlify.Puzzle.Cell;
-import com.puzzlify.Puzzle.Point;
+import com.puzzlify.Puzzle.Pixel;
 import static com.puzzlify.Puzzle.constructGrid;
 
 import io.javalin.Javalin;
@@ -20,8 +20,8 @@ public class Api {
         
         // test that the grid outputs the correct image with the center cell all white
         final Cell[][] grid = constructGrid(image.getHeight(), image.getWidth(), 3, 3);
-        for (final Point point : grid[1][1].coordinates()) {
-            image.setRGB(point.x(), point.y(), 255);
+        for (final Pixel pixel : grid[1][1].coordinates()) {
+            image.setRGB(pixel.x(), pixel.y(), 255);
         }
         ImageIO.write(image, "png", new File("/home/akatary/puzzlify/api/src/main/resources/output.png"));
 
