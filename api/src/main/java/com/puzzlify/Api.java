@@ -15,13 +15,16 @@ import io.javalin.Javalin;
 public class Api {
     public static void main(String[] args) throws IOException {
         // test image
-        File file = new File("/home/akatary/puzzlify/api/src/main/resources/billy_nips.jpeg");
+        File file = new File("/home/akatary/puzzlify/api/src/main/resources/billy_nips.png");
         BufferedImage image = ImageIO.read(file);
         
         // test that the grid outputs the correct image with the center cell all white
-        final Cell[][] grid = constructGrid(image.getHeight(), image.getWidth(), 3, 3);
-        for (final Pixel pixel : grid[1][1].coordinates()) {
-            image.setRGB(pixel.x(), pixel.y(), 255);
+        final Cell[][] grid = constructGrid(image, 3, 3);
+        for (final Pixel pixel : grid[0][0].coordinates()) {
+            // only color in non-transparent pixels
+            if (pixel != null) {
+                image.setRGB(pixel.x(), pixel.y(), 255);
+            }
         }
         ImageIO.write(image, "png", new File("/home/akatary/puzzlify/api/src/main/resources/output.png"));
 
