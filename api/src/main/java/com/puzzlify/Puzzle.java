@@ -113,6 +113,7 @@ public class Puzzle {
 
     public static Pair<Cell, Optional<Cell>> cut(Edge edge, Cell cellA, Cell cellB) {
         // if the edge is too small (i.e < half the expected length, we merge the cells)
+        // if one of the cells is too small we merge the cells
         if (!isEdgeValid(edge, cellA) || !isCellValid(cellA) || !isCellValid(cellB)) {
             return new Pair<>(cellA.merge(cellB), Optional.empty());
         } 
