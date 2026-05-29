@@ -13,6 +13,8 @@ public class Puzzle {
             return lower.x() <= x() && x() <= upper.x() && lower.y() <= y() && y() <= upper.y();
         }
         boolean equals(Pixel other) {
+//            System.out.println("comparing " + this + "to " + other);
+//            System.out.println(x() == other.x() && y() == other.y());
             return x() == other.x() && y() == other.y();
         }
     }
@@ -22,6 +24,7 @@ public class Puzzle {
         int width() {
             int minX = -1, maxX = -1;
             for (Pixel p : pixels) {
+                if(p==null) continue;
                 if (minX == -1 || minX > p.x()) {
                     minX = p.x();
                 }
@@ -34,6 +37,7 @@ public class Puzzle {
         int height() {
             int minY = -1, maxY = -1;
             for (Pixel p : pixels) {
+                if(p==null) continue;
                 if (minY == -1 || minY > p.y()) {
                     minY = p.y();
                 }
@@ -45,7 +49,9 @@ public class Puzzle {
         }
         boolean contains(Pixel pixel) {
             for (Pixel p : pixels) {
+                if(p==null) continue;
                 if (p.equals(pixel)) {
+                    System.out.println(p +", " +pixel);
                     return true;
                 }
             }
@@ -114,7 +120,14 @@ public class Puzzle {
     public static Pair<Cell, Optional<Cell>> cut(Edge edge, Cell cellA, Cell cellB) {
         // if the edge is too small (i.e < half the expected length, we merge the cells)
         // if one of the cells is too small we merge the cells
+        if(cellA == null) return new Pair<>(cellA, Optional.of(cellB));
+        if(cellB==null) return new Pair<>(cellA,Optional.of(cellB));
         if (!isEdgeValid(edge, cellA) || !isCellValid(cellA) || !isCellValid(cellB)) {
+           System.out.println("invalid edge: " + edge);
+           System.out.println("CellA: is cell valid: "+ isCellValid(cellA)+", is edge valid: " +
+                   isEdgeValid(edge,cellA));
+            System.out.println("CellB: is cell valid: "+ isCellValid(cellB));
+
             return new Pair<>(cellA.merge(cellB), Optional.empty());
         } 
         final int direction = Math.random() > 0.5 ? 1 : -1;
@@ -146,6 +159,7 @@ public class Puzzle {
         final ArrayList<Pixel> pixelsRemoved = new ArrayList<>();
         for (int i = 0; i < cell.pixels().length; i++) {
             final Pixel pixel = cell.pixels()[i];
+            if(pixel==null) continue;
             if (!pixel.between(upper, lower)) {
                 pixelsRemoved.add(pixel);
             } else {
@@ -161,10 +175,13 @@ public class Puzzle {
         return new Cell(pixelsAppended);
     }
     private static boolean isEdgeValid(Edge edge, Cell cell) {
+        System.out.print("Mid point: " + cell.contains(edge.midpoint()));
+        System.out.print(" ,Edge Start: " + cell.contains(edge.start()));
+        System.out.println(" ,Edge end: " + cell.contains(edge.end()));
         return cell.contains(edge.midpoint()) && (cell.contains(edge.start()) || cell.contains(edge.end()));
     }
     private static boolean isCellValid(Cell cell) {
-        return cell.width() > 100 && cell.height() > 100;
+        return cell.width() > 50 && cell.height() > 50;
     }
     private Puzzle() {}
 }
