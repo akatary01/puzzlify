@@ -9,6 +9,7 @@ package-lock.json
 api/.env
 api/*.jar
 api/target/
-api/src/main/resources/output.png
+api/src/main/resources/*.png
+api/src/main/resources/puzzle/
 
 .idea/
