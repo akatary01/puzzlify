@@ -1,17 +1,3 @@
-<svg width="191" height="168" viewBox="0 0 191 168" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_1532_92)">
-<path d="M62 0.5C62 11.8218 72.0736 21 84.5 21C96.9264 21 107 11.8218 107 0.5C107 0.332848 106.997 0.166195 106.992 0L164 0L164 60.0059C164.166 60.0026 164.333 60 164.5 60C176.926 60 187 69.1782 187 80.5C187 91.8218 176.926 101 164.5 101C164.333 101 164.166 100.996 164 100.993V160H109.992C109.701 148.909 99.7429 140 87.5 140C75.2571 140 65.2992 148.909 65.0078 160H4L4 103.993C4.16624 103.996 4.33289 104 4.5 104C16.9264 104 27 94.8218 27 83.5C27 72.1782 16.9264 63 4.5 63C4.3329 63 4.16623 63.0026 4 63.0059L4 0L62.0078 0C62.0034 0.166195 62 0.332848 62 0.5Z" fill="#FFC756"/>
-</g>
-<defs>
-<filter id="filter0_d_1532_92" x="0" y="0" width="191" height="168" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="4"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1532_92"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1532_92" result="shape"/>
-</filter>
-</defs>
+<svg width="183" height="160" viewBox="0 0 183 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M58 0.5C58 11.8218 68.0736 21 80.5 21C92.9264 21 103 11.8218 103 0.5C103 0.332848 102.997 0.166195 102.992 0L160 0V60.0059C160.166 60.0026 160.333 60 160.5 60C172.926 60 183 69.1782 183 80.5C183 91.8218 172.926 101 160.5 101C160.333 101 160.166 100.996 160 100.993V160H105.992C105.701 148.909 95.743 140 83.5 140C71.257 140 61.2992 148.909 61.0078 160H0L0 103.993C0.166241 103.996 0.332889 104 0.5 104C12.9264 104 23 94.8218 23 83.5C23 72.1782 12.9264 63 0.5 63C0.332896 63 0.166235 63.0026 0 63.0059L0 0L58.0078 0C58.0034 0.166195 58 0.332848 58 0.5Z" fill="#FFC756"/>
 </svg>
