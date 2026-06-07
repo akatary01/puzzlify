@@ -57,6 +57,15 @@ public class Puzzle {
             }
             return closestP;
         }
+        boolean contains(Pixel pixel) {
+            for (Pixel p : pixels()) {
+                if (p == null) { continue; }
+                if (p.equals(pixel)) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     public enum EdgeType { HORIZONTAL, VERTICAL }
@@ -160,6 +169,12 @@ public class Puzzle {
         // final boolean inside = -1 / radius * Math.pow(pixel.x() - midpoint.x(), 2) + direction * midpoint.y() + radius >= direction * pixel.y();
         // parabola
         // final boolean inside = -Math.abs(pixel.x() - midpoint.x()) + direction * midpoint.y() + radius >= direction * pixel.y();
+        // cubic
+        // final boolean inside = -8 / 3 * (midpoint.y() + radius) / Math.pow(radius, 3) * (pixel.x() - midpoint.x()) * (pixel.x() - (midpoint.x() - radius)) * (pixel.x() - (midpoint.x() + radius)) >= direction * pixel.y();
+        
+        // final boolean insideSquare = (midpoint.x() - radius * 3/4 <= pixel.x()) && (pixel.x() <= midpoint.x() + radius * 3/4) && (midpoint.y() - 1 / 2 * radius <= pixel.y()) && (pixel.y() <= midpoint.y() + 1 / 2 * radius);
+        // final boolean insideCircle = Math.pow(pixel.x() - midpoint.x(), 2) + Math.pow(pixel.y() - (midpoint.y() + radius * 1 / 2), 2) <= Math.pow(radius * 1 / 2, 2);
+        // final boolean inside = insideSquare && insideCircle;
 
         final boolean valid = edge.type() == EdgeType.VERTICAL ? direction * pixel.x() >= direction * midpoint.x() : direction * pixel.y() >= direction * midpoint.y();
         return inside && valid;

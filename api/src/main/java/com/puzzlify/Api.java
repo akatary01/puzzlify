@@ -14,16 +14,17 @@ import com.puzzlify.Puzzle.Pair;
 import com.puzzlify.Puzzle.Pixel;
 import static com.puzzlify.Puzzle.constructGrid;
 import static com.puzzlify.Puzzle.cut;
+import static com.puzzlify.Utils.isBorderPixel;
 
 public class Api {
     public static void main(String[] args) throws IOException {
         // test image
         File file = new File("../api/src/main/resources/billy_nips.png");
         BufferedImage image = ImageIO.read(file);
-        BufferedImage image2 = ImageIO.read(file);
+        BufferedImage cutImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_INT_ARGB);
         
-        final int rows = 10;
-        final int cols = 5;
+        final int rows = 5;
+        final int cols = 2;
         int[][] colors = {
             { 0x80FF0000, 0x8000FF00, 0x800000FF },  // Row 0: Red, Green, Blue
             { 0x80FFFF00, 0x8000FFFF, 0x80FF00FF },  // Row 1: Yellow, Cyan, Magenta
@@ -54,7 +55,7 @@ public class Api {
                     final Edge edgeH = new Edge(topLeft.translate(0, a - 1), bottomRight);
                     System.out.println(String.format("edgeH: %s", edgeH));
                     // horizontal cut and update cells
-                    final double cutSize = 0.25*b;
+                    final double cutSize = 0.125*b;
                     Puzzle.Pair<Cell, Optional<Cell>> cutH = cut(edgeH, puzzle[i][j], puzzle[i + 1][j], cutSize);
                     puzzle[i][j] = cutH.first();
                     System.out.println(String.format("cutH cellA: %s, %s", puzzle[i][j].size(), puzzle[i][j].boundingBox()));
@@ -90,13 +91,18 @@ public class Api {
                 for (final Pixel pixel : puzzle[i][j].pixels()) {
                     // only color in non-transparent pixels
                     if (pixel != null) {
-                        // System.out.println(image.getRGB(pixel.x(), pixel.y()));
-                        image2.setRGB(pixel.x(), pixel.y(), colors[i % 3][j % 3]);
+                        if (isBorderPixel(puzzle[i][j], pixel)) {
+                            // set border pixels to black
+                            cutImage.setRGB(pixel.x(), pixel.y(), 0xFF000000);
+                        } else {
+                            // System.out.println(image.getRGB(pixel.x(), pixel.y()));
+                            cutImage.setRGB(pixel.x(), pixel.y(), image.getRGB(pixel.x(), pixel.y()));
+                        }
                     }
                 }
             }
         }
-        ImageIO.write(image2, "png", new File("../api/src/main/resources/output.png"));
+        ImageIO.write(cutImage, "png", new File("../api/src/main/resources/output.png"));
         
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
@@ -106,8 +112,13 @@ public class Api {
                 for (final Pixel pixel : puzzle[i][j].pixels()) {
                     // only color in non-transparent pixels
                     if (pixel != null) {
-                        // System.out.println(String.format("(x: %d, y: %d) in (w: %d, h: %d, bounds: %s)", pixel.x() - bounds.first().x(), pixel.y() - bounds.first().y(), puzzle[i][j].width(), puzzle[i][j].height(), puzzle[i][j].boundingBox()));
-                        cell.setRGB(pixel.x() - bounds.first().x(), pixel.y() - bounds.first().y(), image.getRGB(pixel.x(), pixel.y()));
+                        if (isBorderPixel(puzzle[i][j], pixel)) {
+                            // set border pixels to black
+                            cell.setRGB(pixel.x() - bounds.first().x(), pixel.y() - bounds.first().y(), 0xFF000000);
+                        } else {
+                            // System.out.println(String.format("(x: %d, y: %d) in (w: %d, h: %d, bounds: %s)", pixel.x() - bounds.first().x(), pixel.y() - bounds.first().y(), puzzle[i][j].width(), puzzle[i][j].height(), puzzle[i][j].boundingBox()));
+                            cell.setRGB(pixel.x() - bounds.first().x(), pixel.y() - bounds.first().y(), image.getRGB(pixel.x(), pixel.y()));
+                        }
                     }
                 }
                 ImageIO.write(cell, "png", new File(String.format("../api/src/main/resources/puzzle/cell_%s_%s.png", i, j)));
