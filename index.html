@@ -3,11 +3,10 @@
     <title>puzzlify</title>
     <link rel="icon" href="assets/favicon.ico" />
 
-    <link rel="stylesheet" href="assets/css/art.css">
-    <link rel="stylesheet" href="assets/css/book.css">
     <link rel="stylesheet" href="assets/css/utils.css">
     <link rel="stylesheet" href="assets/css/vars/_theme.css">
     <link rel="stylesheet" href="assets/css/vars/_fonts.css">
+    <link rel="stylesheet" href="assets/css/puzzilfy.css">
 
     <link rel="apple-touch-icon" href="assets/apple.png" />
     <script src="https://kit.fontawesome.com/51acc43a61.js" crossorigin="anonymous"></script>
@@ -15,13 +14,30 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="<Eman loves Ahmed <3<3<3<3<3<3<3<3 and Ahmed loves Eman <3<3<3<3<3<3<3<3 >">
     <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Barrio&display=swap" rel="stylesheet">
 </head>
 <body class="flex justify-center">  
 <div id="root">
-   <nav></nav>
-   <main class="flex justify-between align-center width-100" style="height: 100%">
+    <nav></nav>
+    <main class="flex justify-between align-center width-100" style="height: 100%">
+        <h3></h3>
+        <div>
+            <div></div>
+            <div>
+                <puzzle-piece x-data="{src: 'assets/puzzle_pieces/edge_1.svg', rotation: 50}"></puzzle-piece>
+                <puzzle-piece x-data="{src: 'assets/puzzle_pieces/piece_1.svg', rotation: 50}"></puzzle-piece>
+                <puzzle-piece x-data="{src: 'assets/puzzle_pieces/piece_2.svg', rotation: 50}"></puzzle-piece>
+                <puzzle-piece x-data="{src: 'assets/puzzle_pieces/piece_3.svg', rotation: 50}"></puzzle-piece>
+            </div>
+            <div></di
+        </div>
+        <template id="puzzle-piece-template">
+            <button class="puzzle-piece">
+                <img :src="src" :style="{width: '300px', height: '300px', transform: 'rotate(' + rotation + 'deg)'}">
+            </button>
+        </template>     
     </main>
-    <script src="puzzlify.js"></script>
+    <script src="puzzlify.js"></script>       
 </body>
 </html>

@@ -14,3 +14,10 @@ class CustomElement extends HTMLElement {
         }
     }
 }
+
+class PuzzlePiece extends CustomElement {
+    constructor() {
+        super('puzzle-piece-template');
+    }
+}
+customElements.define('puzzle-piece', PuzzlePiece);
