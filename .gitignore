@@ -13,3 +13,4 @@ api/src/main/resources/*.png
 api/src/main/resources/puzzle/
 
 .idea/
+.vscode/

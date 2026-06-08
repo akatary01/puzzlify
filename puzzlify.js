@@ -21,3 +21,28 @@ class PuzzlePiece extends CustomElement {
     }
 }
 customElements.define('puzzle-piece', PuzzlePiece);
+
+window.onload = () => {
+    const dropArea = document.getElementById("drop-area");
+    const inputFile = document.getElementById("input-file");
+    const imageView = document.getElementById("image-view");
+    
+    inputFile.addEventListener("change", uploadImage);
+    
+    function uploadImage(){
+        let imageLink = URL.createObjectURL( inputFile.files[0]);
+        imageView.style.backgroundImage = `url(${imageLink})`;
+        imageView.style.backgroundRepeat = `no-repeat`;
+        imageView.style.backgroundPosition = `center`;
+        imageView.textContent = "";
+    }
+    dropArea.addEventListener("dragover", function(e){
+        e.preventDefault();
+       
+    });
+     dropArea.addEventListener("drop", function(e){
+        e.preventDefault();
+        inputFile.files = e.dataTransfer.files;
+        uploadImage();
+    });
+}

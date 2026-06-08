@@ -20,17 +20,27 @@
 <body class="flex justify-center">  
 <div id="root">
     <nav></nav>
-    <main class="flex justify-between align-center width-100" style="height: 100%">
+    <main class="flex justify-center align-center width-100" style="height: 100%">
         <h3></h3>
-        <div>
-            <div></div>
-            <div>
-                <puzzle-piece x-data="{src: 'assets/puzzle_pieces/edge_1.svg', rotation: 50}"></puzzle-piece>
-                <puzzle-piece x-data="{src: 'assets/puzzle_pieces/piece_1.svg', rotation: 50}"></puzzle-piece>
-                <puzzle-piece x-data="{src: 'assets/puzzle_pieces/piece_2.svg', rotation: 50}"></puzzle-piece>
-                <puzzle-piece x-data="{src: 'assets/puzzle_pieces/piece_3.svg', rotation: 50}"></puzzle-piece>
+        <div class="flex column align-center justify-center width-100 height-100">
+            <div class="upload-container" style="background-image: url(assets/cork_bg.png); background-repeat: no-repeat">
+                <label for="input-file" id="drop-area">
+                    <div id="image-view" class="pointer">
+                        <i class="fa-solid fa-upload"></i>
+                        <p>Drag and drop your image</p>
+                        <span>or click to upload</span>
+                    </div>
+                    <input id="input-file" type="file" accept="image/*" hidden>
+
+                </label>
+               
             </div>
-            <div></di
+            <div class="flex">
+                <puzzle-piece x-data="{src: 'assets/puzzle_pieces/edge_1.svg', rotation: 10}"></puzzle-piece>
+                <puzzle-piece x-data="{src: 'assets/puzzle_pieces/piece_1.svg', rotation: 25}"></puzzle-piece>
+                <!-- <puzzle-piece x-data="{src: 'assets/puzzle_pieces/piece_2.svg', rotation: 50}"></puzzle-piece>
+                <puzzle-piece x-data="{src: 'assets/puzzle_pieces/piece_3.svg', rotation: 50}"></puzzle-piece> -->
+            </div>
         </div>
         <template id="puzzle-piece-template">
             <button class="puzzle-piece">
