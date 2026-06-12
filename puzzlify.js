@@ -1,3 +1,6 @@
+// import "@fontsource-variable/material-symbols-rounded";  //logo subtitle font
+// import "@fontsource-variable/material-symbols-rounded/wght.css"; 
+// import "@fontsource-variable/material-symbols-rounded/wght-italic.css"; 
 class CustomElement extends HTMLElement {
     constructor(id) {
         super();

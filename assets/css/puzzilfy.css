@@ -1,3 +1,23 @@
+/* @import url('https://googleapis.com'); */
+
+#logo{
+    font-family: 'Inter', sans-serif;
+    font-size: 75px;
+    font-weight: 700;
+    letter-spacing: -3%;
+    line-height: 120%;
+
+}
+#logo-subtitle{
+    font-family: 'Material Symbols Rounded Variable'; /*this font doesnt work idk why*/
+    font-size: 32px;
+    font-weight: 400;
+    padding-left: 20%;
+    line-height: 120%;
+
+    
+}
+
 .puzzle-piece, .puzzle-piece:hover  {
     background-color: transparent;  
 }
