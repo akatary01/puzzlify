@@ -1,11 +1,14 @@
 /* @import url('https://googleapis.com'); */
-
+nav{
+    position: absolute;
+    left: 1%;
+}
 #logo{
     font-family: 'Inter', sans-serif;
-    font-size: 75px;
+    font-size: 200px;
     font-weight: 700;
     letter-spacing: -3%;
-    line-height: 120%;
+    /* line-height: 120%; */
     color: black;
 
 }
@@ -34,30 +37,36 @@
 /* puzzle pieces have absolute position is there a better way? */
 #billys-piece-1{
   position: absolute;
-  transform: rotate(15deg);
-  top: 70%;
-
+  transform: rotate(-15deg);
+  top: 60%;
 
 }
 #billys-piece-2{
   position: absolute;
-  transform: rotate(-10deg);
-  top: 65%;
-  left: 65%;
+  transform: rotate(20deg);
+  top: 61%;
+  padding-right: 10%;
+  /* left: 65%; */
 
 }
 #billys-piece-3{
   position: absolute;
-  transform: rotate(35deg);
-  top: 60%;
-  left: 68%;
+  transform: rotate(-25deg);
+  top: 20%;
+  padding-right: 10%;
+  padding-top: 8%;
+  padding-bottom: 4%;
+  /* left: 68%; */
   
 }
 #billys-piece-4{
   position: absolute;
-  transform: rotate(-66deg);
-  top: 62%;
-  left: 73%;
+  transform: rotate(-60deg);
+  top: 43%;
+  padding-right: 1%;
+  padding-top: 2%;
+  
+  /* left: 73%; */
  
 }
 
