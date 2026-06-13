@@ -6,6 +6,7 @@
     font-weight: 700;
     letter-spacing: -3%;
     line-height: 120%;
+    color: black;
 
 }
 #logo-subtitle{
@@ -14,14 +15,59 @@
     font-weight: 400;
     padding-left: 20%;
     line-height: 120%;
+    color: black;
 
     
+}
+
+#billys-drawer{
+    background-repeat: no-repeat; 
+    background-size: cover ; 
+    padding: 8%; 
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+#billy{
+    transform: rotate(-12deg);
+}
+/* puzzle pieces have absolute position is there a better way? */
+#billys-piece-1{
+  position: absolute;
+  transform: rotate(15deg);
+  top: 70%;
+
+
+}
+#billys-piece-2{
+  position: absolute;
+  transform: rotate(-10deg);
+  top: 65%;
+  left: 65%;
+
+}
+#billys-piece-3{
+  position: absolute;
+  transform: rotate(35deg);
+  top: 60%;
+  left: 68%;
+  
+}
+#billys-piece-4{
+  position: absolute;
+  transform: rotate(-66deg);
+  top: 62%;
+  left: 73%;
+ 
 }
 
 .puzzle-piece, .puzzle-piece:hover  {
     background-color: transparent;  
 }
 .upload-container {
+    background-repeat: no-repeat;
+    border: 15px solid black; 
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     width: 50vw;
     height: 30vw;
     display: flex;
