@@ -24,47 +24,53 @@ nav{
 }
 
 #billys-drawer{
+    width: 20%;
+    height: 380px;
     background-repeat: no-repeat; 
     background-size: cover ; 
-    padding: 8%; 
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 
 }
 
 #billy{
     transform: rotate(-12deg);
+    height: 300px;
 }
 /* puzzle pieces have absolute position is there a better way? */
 #billys-piece-1{
-  position: absolute;
-  transform: rotate(-15deg);
-  top: 60%;
+    height: 75px;
+    position: absolute;
+    transform: rotate(-15deg);
+    top: 60%;
 
 }
 #billys-piece-2{
-  position: absolute;
-  transform: rotate(20deg);
-  top: 61%;
-  padding-right: 10%;
+    height: 75px;
+    position: absolute;
+    transform: rotate(20deg);
+    top: 61%;
+    padding-right: 10%;
   /* left: 65%; */
 
 }
 #billys-piece-3{
-  position: absolute;
-  transform: rotate(-25deg);
-  top: 20%;
-  padding-right: 10%;
-  padding-top: 8%;
-  padding-bottom: 4%;
+    height: 75px;
+    position: absolute;
+    transform: rotate(-25deg);
+    top: 20%;
+    padding-right: 10%;
+    padding-top: 8%;
+    padding-bottom: 4%;
   /* left: 68%; */
   
 }
 #billys-piece-4{
-  position: absolute;
-  transform: rotate(-60deg);
-  top: 43%;
-  padding-right: 1%;
-  padding-top: 2%;
+    height: 75px;
+    position: absolute;
+    transform: rotate(-60deg);
+    top: 43%;
+    padding-right: 1%;
+    padding-top: 2%;
   
   /* left: 73%; */
  
@@ -75,10 +81,10 @@ nav{
 }
 .upload-container {
     background-repeat: no-repeat;
-    border: 15px solid black; 
+    border: 10px solid black; 
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-    width: 50vw;
-    height: 30vw;
+    width: 50%;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
