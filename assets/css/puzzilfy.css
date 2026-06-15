@@ -1,26 +1,69 @@
-/* @import url('https://googleapis.com'); */
+.bubble-speech {
+    position: absolute;
+    left: 86%;
+    bottom: 88%;
+    background: #d9d9d9;
+    color: #000000;
+    font-family: Arial;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 100%;
+    padding-bottom: 0px;
+    padding-top: 20px;
+    position: absolute;
+  opacity: 0;
+  transition: .5s ease;
+    
+}
+.bubble-speech:after {
+  content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    z-index: 1;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: #d9d9d9 transparent transparent transparent;
+    bottom: -20px;
+    left: 27%;
+    margin-left: -10px;
+}
+#billys-drawer:hover .bubble-speech{
+  opacity: 1;
+}
+
 nav{
     position: absolute;
-    left: 1%;
+    width: 20%;
+    /* left: 7%; */
 }
+
 #logo{
     font-family: 'Inter', sans-serif;
-    font-size: 200px;
+    font-size: 50px;
     font-weight: 700;
     letter-spacing: -3%;
-    /* line-height: 120%; */
-    color: black;
-
-}
-#logo-subtitle{
-    font-family: 'Material Symbols Rounded Variable'; /*this font doesnt work idk why*/
-    font-size: 32px;
-    font-weight: 400;
-    padding-left: 20%;
     line-height: 120%;
     color: black;
+    margin: unset;
 
+}
+#page-text{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /*this font doesnt work idk why*/
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 120%;
+    color: black;
+    width: 20%;
+    word-spacing: 10px;
     
+}
+#puzzle-board{
+    /* margin-left: 20%; */
+    /* margin-top: 2%; */
 }
 
 #billys-drawer{
@@ -36,45 +79,34 @@ nav{
     transform: rotate(-12deg);
     height: 300px;
 }
-/* puzzle pieces have absolute position is there a better way? */
+
 #billys-piece-1{
     height: 75px;
     position: absolute;
-    transform: rotate(-15deg);
-    top: 60%;
-
+    transform: rotate(30deg);
+    top: 55%;
 }
 #billys-piece-2{
     height: 75px;
     position: absolute;
-    transform: rotate(20deg);
-    top: 61%;
-    padding-right: 10%;
-  /* left: 65%; */
-
+    transform: rotate(-60deg);
+    top: 38%;
 }
 #billys-piece-3{
     height: 75px;
     position: absolute;
     transform: rotate(-25deg);
-    top: 20%;
-    padding-right: 10%;
-    padding-top: 8%;
-    padding-bottom: 4%;
-  /* left: 68%; */
-  
+    top: 30%;
+    left: 88%;
 }
 #billys-piece-4{
     height: 75px;
     position: absolute;
-    transform: rotate(-60deg);
-    top: 43%;
-    padding-right: 1%;
-    padding-top: 2%;
-  
-  /* left: 73%; */
- 
+    transform: rotate(-20deg);
+    top: 52%;
+    left: 75%;
 }
+
 
 .puzzle-piece, .puzzle-piece:hover  {
     background-color: transparent;  
@@ -89,12 +121,15 @@ nav{
     justify-content: center;
     align-items: center;
     background-size: cover;
+    
 }
 
 #drop-area {
     width: 100%;
     height: 100%;
     text-align: center;
+
+    
 }
 #image-view {
     width: 100%;

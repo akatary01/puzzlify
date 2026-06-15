@@ -20,15 +20,22 @@
 </head>
 <body class="flex justify-center">  
 <div id="root">
-    <nav class="flex column"> 
-        <a href="index.html" style="text-decoration: none;">
-            <!-- <h1 id="logo">Puzzilfy.</h1> -->
-        </a>
-        <!-- <h3 id="logo-subtitle">Turn your art into a puzzle</h3> -->
-    </nav>
+
+        <nav>
+            <a href="index.html" style="text-decoration: none;">
+                <h1 id="logo">Puzzilfy.</h1>
+            </a>
+            
+        </nav>
+     
+   
     
     <main class="flex column justify-center align-center width-100" style="height: 100%">
-        <div class="flex align-center justify-center width-100">
+        
+        <!-- puzzle board + text-->
+        <div id="puzzle-board" class="flex align-center justify-center width-100">
+             <h3 id="page-text">Turn your art into a jigsaw puzzle</h3>
+            <!-- upload space -->
             <div class="upload-container" style="background-image: url(assets/cork_bg.png);">
                 <label for="input-file" id="drop-area">
                     <div id="image-view" class="pointer">
@@ -41,6 +48,7 @@
             </div>
             <!-- billy puzzle drawer -->
             <div class="flex align-center column" id="billys-drawer"  style="background-image:url(assets/cork_bg.png);">
+                <div class="bubble-speech" >Will you put me back together again?</div>
                 <img src="assets/billy_nips.png" id="billy">
                 <img src="assets/billy_nips/cell_4_1.png" id="billys-piece-1">
                 <img src="assets/billy_nips/cell_4_0.png" id="billys-piece-2">
@@ -57,7 +65,7 @@
         </div>
         <template id="puzzle-piece-template">
             <button class="puzzle-piece flex align-center justify-center">
-                <img :src="src" :style="{width: '100px', height: '100px', transform: 'rotate(' + rotation + 'deg)'}" />
+                <img :src="src" :style="{width: '90px', height: '90px', transform: 'rotate(' + rotation + 'deg)'}" />
                 <p x-text="title" style="position: absolute;"></p>
             </button>
         </template>     
