@@ -1,6 +1,6 @@
 .bubble-speech {
     position: absolute;
-    left: 86%;
+    left:65%;
     bottom: 88%;
     background: #d9d9d9;
     color: #000000;
@@ -14,8 +14,8 @@
     padding-bottom: 0px;
     padding-top: 20px;
     position: absolute;
-  opacity: 0;
-  transition: .5s ease;
+    opacity: 0;
+    transition: .5s ease;
     
 }
 .bubble-speech:after {
@@ -62,8 +62,7 @@ nav{
     
 }
 #puzzle-board{
-    /* margin-left: 20%; */
-    /* margin-top: 2%; */
+ 
 }
 
 #billys-drawer{
@@ -72,32 +71,55 @@ nav{
     background-repeat: no-repeat; 
     background-size: cover ; 
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-
+    animation: openDrawer 5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+@keyframes openDrawer {
+0% {
+    transform: translateX(-100%);
+    
+  }
+
+  100% {
+    transform: translateX(0);
+  } 
+  
+}
+
+.fall-into-place{
+    opacity: 0;
+    animation-name: dropDown;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: both;
+}
+
 
 #billy{
     transform: rotate(-12deg);
     height: 300px;
+    
 }
 
 #billys-piece-1{
     height: 75px;
     position: absolute;
-    transform: rotate(30deg);
-    top: 55%;
+    transform: rotate(40deg);
+    top: 65%;
+    left: 10%;
 }
 #billys-piece-2{
     height: 75px;
     position: absolute;
     transform: rotate(-60deg);
-    top: 38%;
+    top: 78%;
 }
 #billys-piece-3{
     height: 75px;
     position: absolute;
-    transform: rotate(-25deg);
-    top: 30%;
-    left: 88%;
+    transform: rotate(-35deg);
+    top: 50%;
+    left: 48%;
 }
 #billys-piece-4{
     height: 75px;
@@ -121,6 +143,7 @@ nav{
     justify-content: center;
     align-items: center;
     background-size: cover;
+    z-index: 1;
     
 }
 
@@ -128,8 +151,6 @@ nav{
     width: 100%;
     height: 100%;
     text-align: center;
-
-    
 }
 #image-view {
     width: 100%;
@@ -150,3 +171,11 @@ nav{
     color: black;
 }
 
+/* .button{
+    position: relative;
+    font-size: 15px;
+    transform: rotate(-10deg);
+    text-indent: 12px;
+    
+
+} */

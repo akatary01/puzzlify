@@ -18,18 +18,14 @@
     <link rel="<Eman loves Ahmed <3<3<3<3<3<3<3<3 and Ahmed loves Eman <3<3<3<3<3<3<3<3 >">
     <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Barrio&display=swap" rel="stylesheet">
 </head>
-<body class="flex justify-center">  
-<div id="root">
-
-        <nav>
-            <a href="index.html" style="text-decoration: none;">
-                <h1 id="logo">Puzzilfy.</h1>
-            </a>
+<body>  
+    <nav>
+        <a href="index.html" style="text-decoration: none;">                
+            <h1 id="logo">Puzzilfy.</h1>
+        </a>
             
-        </nav>
-     
-   
-    
+    </nav>
+<div id="root">
     <main class="flex column justify-center align-center width-100" style="height: 100%">
         
         <!-- puzzle board + text-->
@@ -66,7 +62,7 @@
         <template id="puzzle-piece-template">
             <button class="puzzle-piece flex align-center justify-center">
                 <img :src="src" :style="{width: '90px', height: '90px', transform: 'rotate(' + rotation + 'deg)'}" />
-                <p x-text="title" style="position: absolute;"></p>
+                <p x-text="title" style="position: absolute;" class="button"></p>
             </button>
         </template>     
     </main>
