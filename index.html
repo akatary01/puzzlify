@@ -52,19 +52,14 @@
                 <img src="assets/billy_nips/cell_3_0.png" id="billys-piece-4">
             </div>
         </div>
-        <!-- row and column buttons -->
-        <div class="flex">
-            <puzzle-piece x-data="{title: 'Rows', src: 'assets/puzzle_pieces/edge_1.svg', rotation: -10}"></puzzle-piece>
-            <puzzle-piece x-data="{title: 'Columns', src: 'assets/puzzle_pieces/piece_1.svg', rotation: 25}"></puzzle-piece>
-            <!-- <puzzle-piece x-data="{src: 'assets/puzzle_pieces/piece_2.svg', rotation: 50}"></puzzle-piece>
-            <puzzle-piece x-data="{src: 'assets/puzzle_pieces/piece_3.svg', rotation: 50}"></puzzle-piece> -->
-        </div>
-        <template id="puzzle-piece-template">
-            <button class="puzzle-piece flex align-center justify-center">
-                <img :src="src" :style="{width: '90px', height: '90px', transform: 'rotate(' + rotation + 'deg)'}" />
-                <p x-text="title" style="position: absolute;" class="button"></p>
-            </button>
-        </template>     
+        <!-- row and column input -->
+        <form class="flex puzzle-shape" x-data="{ rows: 0, cols: 0 }" @submit.prevent="puzzlify(rows, cols)">
+            <input x-model="rows" type="number" max="15" id="rows-input" class="puzzle-input" placeholder="no. rows">
+            <input x-model="cols" type="number" max="15" id="cols-input" class="puzzle-input" placeholder="no. cols">
+            <button type="submit">Puzzlify!</button>
+
+        </form>
+    
     </main>
     <script src="puzzlify.js"></script>       
 </body>

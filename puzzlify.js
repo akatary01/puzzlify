@@ -1,6 +1,3 @@
-// import "@fontsource-variable/material-symbols-rounded";  //logo subtitle font
-// import "@fontsource-variable/material-symbols-rounded/wght.css"; 
-// import "@fontsource-variable/material-symbols-rounded/wght-italic.css"; 
 class CustomElement extends HTMLElement {
     constructor(id) {
         super();
@@ -18,12 +15,15 @@ class CustomElement extends HTMLElement {
     }
 }
 
-class PuzzlePiece extends CustomElement {
-    constructor() {
-        super('puzzle-piece-template');
-    }
+function puzzlify(rows, cols){
+    console.log(rows, cols);
+    //make a request to localhost:7070/puzzlify
+    //pass in uploaded image as file and rows and cols as ints
+    //await the response then preview the output image
+    //the response is a url
 }
-customElements.define('puzzle-piece', PuzzlePiece);
+
+
 
 window.onload = () => {
     const dropArea = document.getElementById("drop-area");
@@ -49,3 +49,4 @@ window.onload = () => {
         uploadImage();
     });
 }
+

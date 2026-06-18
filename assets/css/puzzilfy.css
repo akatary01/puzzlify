@@ -130,7 +130,7 @@ nav{
 }
 
 
-.puzzle-piece, .puzzle-piece:hover  {
+.puzzle-piece, .puzzle-piece:hover, .input-field {
     background-color: transparent;  
 }
 .upload-container {
@@ -171,6 +171,46 @@ nav{
     color: black;
 }
 
+.puzzle-shape{
+    display: inline-block;
+    padding: 20px;
+    
+}
+
+#cols-input{
+    transform: rotate(25deg);
+    width: 90px;
+    height: 90px; 
+    background-color: #FF6776; 
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    border: none;
+    outline: none;
+
+    clip-path: path('M39.5898 0C45.6109 0 50.5051 4.45465 50.6484 10H78.6885V39.0059C78.7703 39.0042 78.8523 39 78.9346 39C85.0459 39 90 43.5891 90 49.25C90 54.9109 85.0459 59.5 78.9346 59.5C78.8523 59.5 78.7703 59.4948 78.6885 59.4932V90H51.1406C50.9973 84.4546 46.1031 80 40.082 80C34.061 80.0001 29.1668 84.4547 29.0234 90H0L0 10L28.5312 10C28.6746 4.45474 33.5689 0.000157573 39.5898 0Z');
+    cursor: text;
+}
+#rows-input{
+    margin-right: 50px;
+    transform: rotate(-10deg);
+    width: 89px;
+    height: 100px; 
+    background-color: #72FFF3; 
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    border: none;
+    outline: none;
+
+    clip-path: path('M48.6572 0C54.6439 0.000202394 59.5098 4.43258 59.6523 9.9502H89V39.8066C83.0365 39.9274 78.2422 44.4432 78.2422 50C78.2422 55.5569 83.0365 60.0716 89 60.1924V89.5527H61.1201C61.1222 89.6352 61.127 89.7178 61.127 89.8008C61.127 95.4334 56.2005 99.9999 50.124 100C44.0474 100 39.1211 95.4335 39.1211 89.8008C39.1211 89.7178 39.1258 89.6352 39.1279 89.5527H10.7578V60.1924C4.79431 60.0716 0 55.5569 0 50C1.75529e-05 44.4432 4.79432 39.9274 10.7578 39.8066V9.9502H37.6611C37.8037 4.43264 42.6706 0.000321539 48.6572 0Z');
+    cursor: text;
+}
+.puzzle-input::placeholder {
+    color: black;
+    font-size: 15px;
+
+}
 /* .button{
     position: relative;
     font-size: 15px;
