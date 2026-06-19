@@ -21,7 +21,6 @@ public class Puzzle {
             for (int j = 0; j < cols; j++) {
                 // skip transparent cells
                 if (puzzle[i][j].size() == 0) { continue; }
-                System.out.println(String.format("Cell %s,%s has %s pixels", i, j, puzzle[i][j].size()));
                 final Pair<Pixel, Pixel> boundA = grid[i][j].boundingBox();
 
                 final int a = image.getHeight() / rows;
@@ -44,7 +43,6 @@ public class Puzzle {
                 // we do not process the last set of vertical edges
                 if (j != cols - 1) {
                     final Edge edgeV = new Edge(topLeft.translate(b - 1, 0), bottomRight);
-
                     //vertical cut and update cells
                     final double cutSize = 0.125 * a;
                     Pair<Cell, Optional<Cell>> cutV = cut(edgeV, puzzle[i][j], puzzle[i][j + 1], cutSize);
