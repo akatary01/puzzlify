@@ -28,7 +28,7 @@ public class Api {
         });
             config.bundledPlugins.enableCors(cors -> {
                 cors.addRule(it -> {
-                    it.allowHost("http://localhost:8000/");
+                    it.allowHost("http://localhost:8000/", "https://akatary.com");
                 });
             });
         }
@@ -55,7 +55,7 @@ public class Api {
                 final File cutImageFile = new File(String.format("./puzzles/%s.png", uid));
                 ImageIO.write(cutImage, "png", cutImageFile);
                 
-                ctx.result(String.format("http://localhost:7070/puzzles/%s.png", uid));
+                ctx.result(String.format("https://akatary.com/puzzlify/api/puzzles/%s.png", uid));
             })
             .start(7070);
     }

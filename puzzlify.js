@@ -36,7 +36,7 @@ async function puzzlify(rows, cols){
     fd.append('image', document.getElementById("input-file").files[0]);
 
     const qstr = new URLSearchParams({rows, cols}).toString(); //makes a query string 
-    const url = new URL(`http://localhost:7070/puzzlify?${qstr}`);
+    const url = new URL(`https://akatary.com/puzzlify/api/puzzlify?${qstr}`);
 
     try {
         const response = await fetch(url,{
