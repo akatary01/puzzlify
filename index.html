@@ -53,10 +53,11 @@
             </div>
         </div>
         <!-- row and column input -->
-        <form class="flex puzzle-shape" x-data="{ rows: 0, cols: 0 }" @submit.prevent="puzzlify(rows, cols)">
+        <form class="flex puzzle-shape" x-data="{ rows: null, cols: null }" @submit.prevent="puzzlify(rows, cols)">
             <input x-model="rows" type="number" max="15" id="rows-input" class="puzzle-input" placeholder="no. rows">
             <input x-model="cols" type="number" max="15" id="cols-input" class="puzzle-input" placeholder="no. cols">
-            <button type="submit">Puzzlify!</button>
+            <button type="submit" id="puzzlify-button">Puzzlify!</button>
+            <button type="button" id="print-button" onclick="printPuzzle()">Print</button>
 
         </form>
     

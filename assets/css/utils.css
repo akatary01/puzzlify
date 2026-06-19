@@ -137,7 +137,7 @@ code {
 button {
     border: none;
     margin: 10px;
-    padding: 10px 25px;
+    /* padding: 10px 25px; */
     color: var(--bg-primary);
     background-color: var(--primary);
     border-radius: var(--btn-border-radius);
