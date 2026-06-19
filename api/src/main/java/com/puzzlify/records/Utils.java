@@ -11,9 +11,9 @@ public class Utils {
         public boolean inside(Edge edge, double radius, int direction) {
             final Pixel midpoint = edge.midpoint();
             // circle
-            // final boolean inside = Math.pow(x() - midpoint.x(), 2) + Math.pow(y() - midpoint.y(), 2) <= Math.pow(radius, 2);
+            final boolean inside = Math.pow(x() - midpoint.x(), 2) + Math.pow(y() - midpoint.y(), 2) <= Math.pow(radius, 2);
             // square 
-            final boolean inside = (midpoint.x() - radius <= x()) && (x() <= midpoint.x() + radius) && (midpoint.y() - radius <= y()) && (y() <= midpoint.y() + radius);
+            // final boolean inside = (midpoint.x() - radius <= x()) && (x() <= midpoint.x() + radius) && (midpoint.y() - radius <= y()) && (y() <= midpoint.y() + radius);
             // triangle 
             // final boolean inside = -1 / radius * Math.pow(x() - midpoint.x(), 2) + direction * midpoint.y() + radius >= direction * y();
             // parabola
