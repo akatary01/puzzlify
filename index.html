@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="assets/css/utils.css">
     <link rel="stylesheet" href="assets/css/vars/_theme.css">
     <link rel="stylesheet" href="assets/css/vars/_fonts.css">
-    <link rel="stylesheet" href="assets/css/puzzilfy.css">
+    <link rel="stylesheet" href="assets/css/puzzlify.css">
 
     <link rel="apple-touch-icon" href="assets/apple.png" />
     <script src="https://kit.fontawesome.com/51acc43a61.js" crossorigin="anonymous"></script>
@@ -16,23 +16,105 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="<Eman loves Ahmed <3<3<3<3<3<3<3<3 and Ahmed loves Eman <3<3<3<3<3<3<3<3 >">
-    <link href="https://fonts.googleapis.com/css2?family=Annie+Use+Your+Telescope&family=Barrio&display=swap" rel="stylesheet">
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <body>  
-    <nav>
+    <nav class="absolute" style="top: 10px; left: 10px;">
         <a href="index.html" style="text-decoration: none;">                
-            <h1 id="logo">Puzzilfy.</h1>
+            <h1 class="font-title" style="font-size: 42px; margin: 10px">Puzzilfy.</h1>
         </a>
-            
     </nav>
-<div id="root">
-    <main class="flex column justify-center align-center width-100" style="height: 100%">
+    <form 
+        style="height: 90%"
+        x-data="{ rows: 5, cols: 5, cut: 'circle' }"
+        @submit.prevent="puzzlify(rows, cols, cut)"
+        class="flex column justify-center align-center width-100" 
+    >
+        <h1 style="margin-bottom: 0">Turn your art into a jigsaw pizzle!</h1>
+        <h3>Turn your favoriate images and art into a customize and printable jigsaw puzzle!</h3>
+        <div class="settings flex column align-center" style="width: 300px; height: 72px; border-radius: 15px 15px 0 0; transform: translateX(-10px);">
+            <h3 style="margin: 5px">Puzzle size (rows x cols)</h3>
+            <span>
+                <input id="rows-input" x-model="rows" type="number" max="20" style="width: 72px; height: 30px; text-align: center; font-size: var(--font-size-title-large)" placeholder="5"/>
+                <i class="fa-solid fa-x"></i>
+                <input id="cols-input" x-model="cols"type="number" max="20" style="width: 72px; height: 30px; text-align: center; font-size: var(--font-size-title-large)" placeholder="5"/>
+            </span>
+        </div>
+        <div class="flex justify-center align-center" style="width: 960px; height: 420px">
+            <div 
+                class="settings flex column" 
+                style="width: 160px; height: 90%; border-radius: 15px 0 0 15px; transform: translateX(10px); padding: 10px"
+            >
+                <h2 style="font-size: 22px; margin: 0; font-weight: 900">Tab Pattern</h2>
+                <fieldset class="cut-options flex column justify-around height-100">
+                    <label>
+                        <input type="radio" name="cut" value="square"
+                            x-model="cut" aria-label="Square">
+                        <svg viewBox="0 0 64 32" aria-hidden="true">
+                            <path d="M4 24H22V8H42V24H60"/>
+                        </svg>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="cut" value="circle"
+                            x-model="cut" aria-label="Circle">
+                        <svg viewBox="0 0 64 32" aria-hidden="true">
+                            <path d="M4 24H18A14 14 0 0 1 46 24H60"/>
+                        </svg>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="cut" value="triangle"
+                            x-model="cut" aria-label="Triangle">
+                        <svg viewBox="0 0 64 32" aria-hidden="true">
+                            <path d="M4 24H18L32 6L46 24H60"/>
+                        </svg>
+                    </label>
+                </fieldset>
+            </div>
+
+            <div class="puzzle-board cork_bg height-100" style="width: 70%; border-radius: 15px;">
+                <label for="input-file" id="drop-area" class="flex align-center justify-center">
+                    <div id="image-view" class="pointer">
+                        <i class="fa-solid fa-upload"></i>
+                        <p>Drag and drop your image</p>
+                        <span>or click to upload</span>
+                    </div>
+                    <input id="input-file" type="file" accept="image/*" hidden />
+                </label>
+            </div>
+
+            <div class="puzzle-board cork_bg drawer" style="width: 180px; height: 90%; border-radius: 0 15px 15px 0;"></div>
+        </div>
+        <span class="flex justify-between" style="width: 300px">
+            <span class="shadow-0-3-3">
+                <button 
+                    type="submit" 
+                    id="puzzlify-button"
+                    class="action puzzlify" 
+                    style="width: 80px; height: 80px; transform: scale(1.5) translateY(40px) rotate(10deg);"
+                >
+                    <p style="transform: rotate(-10deg); font-size: var(--font-size-title-small)">Puzzlify!</p>
+                </button>
+            </span>
+            <span class="shadow-0-3-3">
+                <button 
+                    type="button" 
+                    id="print-button" 
+                    class="action print" 
+                    onclick="printPuzzle()"
+                    style="width: 89px; height: 80px; transform: scale(1.5) translateY(40px) rotate(-35deg);"
+                >
+                    <p style="transform: rotate(35deg); font-size: var(--font-size-title-small)">Print</p>
+                </button>
+            </span>
+        </span>
+        
         
         <!-- puzzle board + text-->
-        <div id="puzzle-board" class="flex align-center justify-center width-100">
-             <h3 id="page-text">Turn your art into a jigsaw puzzle</h3>
+        <!-- <div id="puzzle-board" class="flex align-center justify-center width-100">
+             <h3 id="page-text">Turn your art into a jigsaw puzzle</h3> -->
             <!-- upload space -->
-            <div class="upload-container" style="background-image: url(assets/cork_bg.png);">
+            <!-- <div class="upload-container" style="background-image: url(assets/cork_bg.png);">
                 <label for="input-file" id="drop-area">
                     <div id="image-view" class="pointer">
                         <i class="fa-solid fa-upload"></i>
@@ -41,9 +123,9 @@
                     </div>
                     <input id="input-file" type="file" accept="image/*" hidden>
                 </label>
-            </div>
+            </div> -->
             <!-- billy puzzle drawer -->
-            <div class="flex align-center column" id="billys-drawer"  style="background-image:url(assets/cork_bg.png);">
+            <!-- <div class="flex align-center column" id="billys-drawer"  style="background-image:url(assets/cork_bg.png);">
                 <div class="bubble-speech" >Will you put me back together again?</div>
                 <img src="assets/billy_nips.png" id="billy">
                 <img src="assets/billy_nips/cell_4_1.png" id="billys-piece-1">
@@ -51,17 +133,16 @@
                 <img src="assets/billy_nips/cell_3_1.png" id="billys-piece-3">
                 <img src="assets/billy_nips/cell_3_0.png" id="billys-piece-4">
             </div>
-        </div>
+        </div> -->
         <!-- row and column input -->
-        <form class="flex puzzle-shape" x-data="{ rows: null, cols: null }" @submit.prevent="puzzlify(rows, cols)">
+        <!-- <form class="flex puzzle-shape" x-data="{ rows: null, cols: null }" @submit.prevent="puzzlify(rows, cols)">
             <input x-model="rows" type="number" max="15" id="rows-input" class="puzzle-input" placeholder="no. rows">
             <input x-model="cols" type="number" max="15" id="cols-input" class="puzzle-input" placeholder="no. cols">
             <button type="submit" id="puzzlify-button">Puzzlify!</button>
             <button type="button" id="print-button" onclick="printPuzzle()">Print</button>
-
-        </form>
+        </form> -->
     
-    </main>
+    </form>
     <script src="puzzlify.js"></script>       
 </body>
 </html>

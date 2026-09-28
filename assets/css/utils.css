@@ -119,14 +119,9 @@ body {
     width: 100vw;
     height: 100vh;
     min-width: 1200px;
-
+    min-height: 800px;
     color: var(--font-color-primary);
     background-color: var(--bg-primary);
-}
-  
-#root {
-    width: 1200px;
-    height: 100%;
 }
 
 code {
@@ -183,7 +178,21 @@ h2, .h2 {
     font-size: var(--font-size-title-large);
 }
 
+h1, .h1 {
+    font-size: var(--font-size-headline-large);
+}
+
+
+.font-title {
+  font-family: var(--font-family);
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
 p {
+    font-family: var(--font-family);
     color: var(--font-color-primary);
     font-size: var(--font-size-body-small);
 }

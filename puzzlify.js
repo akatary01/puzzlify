@@ -27,7 +27,7 @@ class CustomElement extends HTMLElement {
     });
   });
 
-async function puzzlify(rows, cols){
+async function puzzlify(rows, cols, cut){
     console.log(rows, cols);
 
     //post 
@@ -35,7 +35,7 @@ async function puzzlify(rows, cols){
     var fd = new FormData();
     fd.append('image', document.getElementById("input-file").files[0]);
 
-    const qstr = new URLSearchParams({rows, cols}).toString(); //makes a query string 
+    const qstr = new URLSearchParams({rows, cols, cut}).toString(); //makes a query string 
     const url = new URL(`https://akatary.com/puzzlify/api/puzzlify?${qstr}`);
 
     try {
@@ -62,8 +62,6 @@ async function puzzlify(rows, cols){
     //await the response then preview the output image
     //the response is a url
 }
-
-
 
 window.onload = () => {
     const dropArea = document.getElementById("drop-area");

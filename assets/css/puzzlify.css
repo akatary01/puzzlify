@@ -1,0 +1,118 @@
+button.action {
+    border: none;
+    outline: none;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--font-color-primary);
+}
+
+button.action.puzzlify {
+    background-color: #B8D889; 
+    clip-path: path('M28.8193 0.248047C28.8193 5.87358 33.8247 10.4346 39.999 10.4346C46.1732 10.4344 51.1787 5.87347 51.1787 0.248047C51.1787 0.165101 51.174 0.0824711 51.1719 0H71.5Q79.5 0 79.5 8V29.8184C73.4406 29.9389 68.5696 34.4484 68.5693 39.998C68.5693 45.5479 73.4405 50.0572 79.5 50.1777V71.5Q79.5 79.5 71.5 79.5H51.1719C51.0271 73.9894 46.082 69.5627 39.999 69.5625C33.9158 69.5625 28.971 73.9893 28.8262 79.5H8Q0 79.5 0 71.5V50.1777C0.0826876 50.1794 0.165903 50.1846 0.249023 50.1846C6.42322 50.1844 11.4287 45.6235 11.4287 39.998C11.4285 34.3728 6.42307 29.8127 0.249023 29.8125C0.165908 29.8125 0.0826825 29.8167 0 29.8184V8Q0 0 8 0H28.8262C28.824 0.0824779 28.8193 0.165095 28.8193 0.248047Z');
+}
+
+button.action.print {
+    background-color: #FFC756; 
+    clip-path: path('M28.207 0.24707C28.2071 5.83707 33.1061 10.369 39.1494 10.3691C45.1928 10.3691 50.0917 5.83714 50.0918 0.24707C50.0918 0.164447 50.0871 0.0821495 50.085 0H69.8145Q77.8145 0 77.8145 8V29.6309C77.8953 29.6292 77.9763 29.625 78.0576 29.625C84.101 29.625 89 34.1569 89 39.7471C88.9999 45.3371 84.101 49.8691 78.0576 49.8691C77.9763 49.8691 77.8953 49.8649 77.8145 49.8633V71Q77.8145 79 69.8145 79H51.5449C51.403 73.5241 46.5635 69.125 40.6094 69.125C34.6554 69.1251 29.8157 73.5241 29.6738 79H8Q0 79 0 71V51.3438C0.0808699 51.3454 0.161871 51.3506 0.243164 51.3506C6.28648 51.3506 11.1863 46.8185 11.1865 41.2285C11.1865 35.6384 6.28661 31.1064 0.243164 31.1064C0.161882 31.1064 0.080859 31.1097 0 31.1113V8Q0 0 8 0H28.2139C28.2117 0.0821495 28.207 0.164447 28.207 0.24707Z');
+}
+
+.cork_bg {
+    background-image: url("../cork_bg.png");
+}
+
+.puzzle-board {
+    z-index: 1;
+    background-color: var(--bg-primary);
+    border: 10px solid var(--font-color-primary);
+}
+
+.settings {
+    z-index: 0;
+    background: var(--bg-secondary);
+    border: 1px solid var(--font-color-secondary);
+}
+
+.shadow-0-3-3 {
+    filter: drop-shadow(0 3px 3px rgba(73, 55, 43, 0.22));
+}
+
+.drawer {
+    z-index: -1;
+    opacity: 0%;
+    animation: openDrawer 5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    /* animation-delay: 2s; */
+}
+
+@keyframes openDrawer {
+    0% {
+        opacity: 100%;
+        transform: translateX(-100%);
+        box-shadow: none;
+    }
+
+    100% {
+        opacity: 100%;
+        transform: translateX(-10px);
+        box-shadow: inset 4px 2px 5px #000;
+    }  
+}
+
+#drop-area {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#image-view {
+    width: 95%;
+    height: 95%;
+    background-size: contain;
+}
+#image-view p {
+    margin: 10px;
+    font-size: 30px;
+    color: var(--bg-primary);
+}
+#image-view i {
+    font-size: 45px;
+    padding-top: 20%;
+    color: var(--bg-primary);
+}
+#image-view span {
+    display: block;
+    font-size: 18px;
+    color: var(--bg-primary);
+}
+
+.cut-options {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.cut-options, .cut-options label {
+    gap: 16px;
+    color: var(--font-color-primary);
+}
+
+.cut-options label {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+}
+
+.cut-options input {
+    accent-color: var(--font-color-primary);
+}
+
+.cut-options svg {
+    width: 64px;
+    height: 32px;
+
+    fill: none;
+    stroke-width: 2;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
