@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.jetbrains.annotations.NotNull;
 
+import com.puzzlify.records.Utils.CutType;
 import com.puzzlify.records.Utils.Edge;
 import com.puzzlify.records.Utils.Pair;
 import com.puzzlify.records.Utils.Pixel;
@@ -15,7 +16,7 @@ public record Cell(@NotNull Set<Pixel> pixels) {
         extendedPixels.addAll(newPixels);
         return new Cell(extendedPixels);
     }
-    public Pair<Cell, Set<Pixel>> cut(Edge edge, double radius, int direction) {
+    public Pair<Cell, Set<Pixel>> cut(Edge edge, double radius, int direction, CutType cutType) {
         final Set<Pixel> cutPixels = new HashSet<>();
         // int contained = 0;
         final Set<Pixel> pixelsRemoved = new HashSet<>();
@@ -23,7 +24,7 @@ public record Cell(@NotNull Set<Pixel> pixels) {
             if (pixel == null) {
                 continue;
             }
-            if (pixel.inside(edge, radius, direction)) {
+            if (pixel.inside(edge, radius, direction, cutType)) {
                 // contained++;
                 pixelsRemoved.add(pixel);
             } else {

@@ -8,12 +8,13 @@ import java.util.Set;
 import org.jetbrains.annotations.NotNull;
 
 import com.puzzlify.records.Cell;
+import com.puzzlify.records.Utils.CutType;
 import com.puzzlify.records.Utils.Edge;
 import com.puzzlify.records.Utils.Pair;
 import com.puzzlify.records.Utils.Pixel;
 
 public class Puzzle {
-    public static Cell[][] puzzlify(final BufferedImage image, final int rows, final int cols) {
+    public static Cell[][] puzzlify(final BufferedImage image, final int rows, final int cols, CutType cutType) {
         final Cell[][] grid = constructGrid(image, rows, cols, false);
         final Cell[][] puzzle = constructGrid(image, rows, cols, true);
 
@@ -35,7 +36,7 @@ public class Puzzle {
 
                     // horizontal cut and update cells
                     final double cutSize = 0.125 * b;
-                    Pair<Cell, Optional<Cell>> cutH = cut(edgeH, puzzle[i][j], puzzle[i + 1][j], cutSize);
+                    Pair<Cell, Optional<Cell>> cutH = cut(edgeH, puzzle[i][j], puzzle[i + 1][j], cutSize, cutType);
                     puzzle[i][j] = cutH.first();
                     puzzle[i + 1][j] = cutH.second().orElse(null);
                 }
@@ -45,7 +46,7 @@ public class Puzzle {
                     final Edge edgeV = new Edge(topLeft.translate(b - 1, 0), bottomRight);
                     //vertical cut and update cells
                     final double cutSize = 0.125 * a;
-                    Pair<Cell, Optional<Cell>> cutV = cut(edgeV, puzzle[i][j], puzzle[i][j + 1], cutSize);
+                    Pair<Cell, Optional<Cell>> cutV = cut(edgeV, puzzle[i][j], puzzle[i][j + 1], cutSize, cutType);
                     puzzle[i][j] = cutV.first();
                     puzzle[i][j + 1] = cutV.second().orElse(null);
                 }
@@ -89,7 +90,7 @@ public class Puzzle {
         return grid;
     }
 
-    private static Pair<Cell, Optional<Cell>> cut(Edge edge, @NotNull Cell cellA, Cell cellB, double cutSize) {
+    private static Pair<Cell, Optional<Cell>> cut(Edge edge, @NotNull Cell cellA, Cell cellB, double cutSize, CutType cutType) {
         if (cellB == null) {
             return new Pair<>(cellA, Optional.empty());
         }
@@ -97,11 +98,11 @@ public class Puzzle {
         final int direction = cellA.size() < cellB.size() ? 1 : -1;
         final Pair<Cell, Set<Pixel>> targets;
         if (direction == -1) {
-            targets = cellA.cut(edge, cutSize, direction);
+            targets = cellA.cut(edge, cutSize, direction, cutType);
             // System.out.println(String.format("targets: (, %d)", targets.second().size()));
             return new Pair<>(targets.first(), Optional.of(cellB.extend(targets.second())));
         } else {
-            targets = cellB.cut(edge, cutSize, direction);
+            targets = cellB.cut(edge, cutSize, direction, cutType);
             // System.out.println(String.format("targets: (, %d)", targets.first().size()));
             return new Pair<>(cellA.extend(targets.second()), Optional.of(targets.first()));
         }
